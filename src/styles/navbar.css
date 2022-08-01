@@ -1,0 +1,8 @@
+.titleContainer{
+    display: flex;
+    align-items: center;
+}
+
+.navbarTitle{
+    font-size: 2em;
+}
