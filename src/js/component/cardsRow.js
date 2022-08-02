@@ -17,15 +17,15 @@ export const CardsRow = () => {
       <>
         <h2 className="row-title">Characters</h2>
         <div className="horizontal-container" id="style-2">
-          <CardPeople/>
+          <CardPeople num={1}/>
         </div>
         <h2 className="row-title">Planets</h2>
         <div className="horizontal-container">
-          <CardPlanet/>
+          <CardPlanet num={1}/>
         </div>
         <h2 className="row-title">Vehicles</h2>
         <div className="horizontal-container">
-          <CardVehicle/>
+          <CardVehicle num={1}/>
         </div>
       </>
     );

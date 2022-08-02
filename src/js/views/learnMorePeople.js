@@ -4,8 +4,12 @@ import React from "react";
 // Import Styles
 import "../../styles/views/learnMore.css";
 
-export const LearnMore = () => (
-  <div className="mainContainer">
+export const LearnMorePeople = (num) => {
+
+  console.log(num);
+  return (
+    <>
+    <div className="mainContainer">
     <div className="card mb-3 border-none">
       <div className="row g-0">
         <div className="col-md-4">
@@ -13,7 +17,7 @@ export const LearnMore = () => (
         </div>
         <div className="col-md-8">
           <div className="card-body">
-            <h1 className="card-title">Insert Object title</h1>
+            <h1 className="card-title">person.name</h1>
             <p className="card-text">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
@@ -30,9 +34,32 @@ export const LearnMore = () => (
     </div>
     <div className="moreInfoContainer">
         <div className="moreInfo">
-            <h4>Property</h4>
-            <h4>Description</h4>
+            <h4>Name</h4>
+            <h4>person.name</h4>
+        </div>
+        <div className="moreInfo">
+            <h4>Birth Year</h4>
+            <h4>person.birth_year</h4>
+        </div>
+        <div className="moreInfo">
+            <h4>Gender</h4>
+            <h4>person.gender</h4>
+        </div>
+        <div className="moreInfo">
+            <h4>Height</h4>
+            <h4>person.height</h4>
+        </div>
+        <div className="moreInfo">
+            <h4>Skin Color</h4>
+            <h4>person.skin_color</h4>
+        </div>
+        <div className="moreInfo">
+            <h4>Eye Color</h4>
+            <h4>person.eye_color</h4>
         </div>
     </div>
   </div>
-);
+  </>
+  )
+
+  };
