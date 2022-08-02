@@ -1,0 +1,22 @@
+.mainContainer{
+    max-width: 88vw;
+    margin: 2vh auto;
+}
+
+.border-none{
+    border: none;
+}
+
+.moreInfoContainer{
+    border-top: 2px solid #D62929;
+    display: flex;
+    gap: 2vw;
+}
+
+.moreInfo{
+    color: #D62929;
+}
+.moreInfo h4{
+    margin: 12%;
+}
+

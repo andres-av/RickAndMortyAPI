@@ -1,7 +1,9 @@
 import React from "react";
-import "../../styles/home.css";
+import { CardsRow } from "../component/cardsRow";
+// import "../../styles/home.css";
 
 export const Home = () => (
 	<div>
+		<CardsRow />
 	</div>
 );

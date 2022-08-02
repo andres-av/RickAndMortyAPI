@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import starwars from "../../img/starwars-helmet.png"
 
 // Import Styles
-import "../../styles/navbar.css";
+import "../../styles/components/navbar.css";
 
 export const Navbar = () => {
 	return (
@@ -11,18 +11,18 @@ export const Navbar = () => {
       <nav className="navbar bg-light">
         <div className="container">
           <div className="titleContainer">
-            <a className="navbar-brand" href="#">
+            <Link className="navbar-brand" to="/">
               <img src={starwars} alt="" width="55" height="55" />
-            </a>
+            </Link>
             <p className="navbarTitle">Star Wars</p>
           </div>
           <div className="btn-group">
-            <button type="button" className="btn btn-danger">
+            <button type="button" className="btn btn-primary">
               Favorites
             </button>
             <button
               type="button"
-              className="btn btn-danger dropdown-toggle dropdown-toggle-split"
+              className="btn btn-primary dropdown-toggle dropdown-toggle-split"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >

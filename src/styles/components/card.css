@@ -1,0 +1,8 @@
+.card{
+    min-width: 18rem;
+}
+
+.btnContainer{
+    display: flex;
+    justify-content: space-between;
+}

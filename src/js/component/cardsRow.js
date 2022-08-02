@@ -1,60 +1,31 @@
-import React from "react";
-import "../../styles/cardsRow.css";
+// Import React libraries
+import React, { useState , useEffect } from "react";
+import { Link } from "react-router-dom";
+
+// Import Styles
+import "../../styles/components/cardsRow.css";
+
+// Import Components
+import { CardPeople } from "./cardPeople";
+import { CardVehicle } from "./cardVehicle";
+import { CardPlanet } from "./cardPlanet";
+
 
 export const CardsRow = () => {
 
     return (
       <>
+        <h2 className="row-title">Characters</h2>
+        <div className="horizontal-container" id="style-2">
+          <CardPeople/>
+        </div>
+        <h2 className="row-title">Planets</h2>
         <div className="horizontal-container">
-          <div className="row row-cols-1 row-cols-md-3 g-4">
-            <div className="col">
-              <div className="card h-100">
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">
-                    This is a longer card with supporting text below as a
-                    natural lead-in to additional content. This content is a
-                    little bit longer.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card h-100">
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">This is a short card.</p>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card h-100">
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">
-                    This is a longer card with supporting text below as a
-                    natural lead-in to additional content.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card h-100">
-                <img src="..." className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">
-                    This is a longer card with supporting text below as a
-                    natural lead-in to additional content. This content is a
-                    little bit longer.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <CardPlanet/>
+        </div>
+        <h2 className="row-title">Vehicles</h2>
+        <div className="horizontal-container">
+          <CardVehicle/>
         </div>
       </>
     );

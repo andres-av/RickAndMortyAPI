@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { Home } from "./views/home";
-import { CardsRow } from "./component/cardsRow";
+import { LearnMore } from "./views/learnMore";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -22,10 +22,8 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="">
-							<CardsRow/>
-						</Route>
-						<Route exact path="">
+						<Route exact path="/learn-more">
+							<LearnMore />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
