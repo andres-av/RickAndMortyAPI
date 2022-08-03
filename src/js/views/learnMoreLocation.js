@@ -3,8 +3,9 @@ import React from "react";
 
 // Import Styles
 import "../../styles/views/learnMore.css";
+import { LearnMorePeople } from "./learnMorePeople";
 
-export const LearnMoreVehicle = (num) => {
+const LearnMoreLocation = (num) => {
 
   return (
     <>
@@ -16,7 +17,7 @@ export const LearnMoreVehicle = (num) => {
         </div>
         <div className="col-md-8">
           <div className="card-body">
-            <h1 className="card-title">vehicle.name</h1>
+            <h1 className="card-title">Location.name</h1>
             <p className="card-text">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
@@ -33,20 +34,20 @@ export const LearnMoreVehicle = (num) => {
     </div>
     <div className="moreInfoContainer">
         <div className="moreInfo">
-            <h4>Passengers</h4>
-            <h4>vehicle.passengers</h4>
+            <h4>Population</h4>
+            <h4>Location.population</h4>
         </div>
         <div className="moreInfo">
-            <h4>Crew</h4>
-            <h4>vehicle.crew</h4>
+            <h4>Climate</h4>
+            <h4>Location.climate</h4>
         </div>
         <div className="moreInfo">
-            <h4>Consumables</h4>
-            <h4>vehicle.consumables</h4>
+            <h4>Diameter</h4>
+            <h4>Location.diameter</h4>
         </div>
         <div className="moreInfo">
-            <h4>Length</h4>
-            <h4>vehicle.length</h4>
+            <h4>Orbital Period</h4>
+            <h4>Location.orbital_period</h4>
         </div>
     </div>
   </div>
@@ -54,3 +55,5 @@ export const LearnMoreVehicle = (num) => {
   )
 
   };
+
+  export default LearnMoreLocation

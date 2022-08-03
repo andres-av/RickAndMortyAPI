@@ -6,27 +6,50 @@ import { Link } from "react-router-dom";
 import "../../styles/components/cardsRow.css";
 
 // Import Components
-import { CardPeople } from "./cardPeople";
-import { CardVehicle } from "./cardVehicle";
-import { CardPlanet } from "./cardPlanet";
+import CardPeople  from "./cardPeople";
+import CardLocation  from "./cardLocation";
 
 
-export const CardsRow = () => {
+const CardsRow = () => {
+
+  // Get people for Characters row
+  const [people, setPeople] = useState([]);
+
+  useEffect(() => {
+    fetch("https://rickandmortyapi.com/api/character")
+    .then((response) => response.json())
+    .then(data => {
+      setPeople(data.results)
+    })
+  }, [])
+  
+  const characters = people.map((person) => <CardPeople person={person} key={person.id}/>)
+
+    // Get location for Locations row
+  const [location, setLocation] = useState([]);
+
+  useEffect(() => {
+    fetch("https://rickandmortyapi.com/api/location")
+    .then((response) => response.json())
+    .then(data => {
+      setLocation(data.results)
+    })
+  }, [])
+  
+  const places = location.map((place) => <CardLocation place={place} key={place.id}/>)
 
     return (
       <>
         <h2 className="row-title">Characters</h2>
         <div className="horizontal-container" id="style-2">
-          <CardPeople num={1}/>
+          {characters}
         </div>
-        <h2 className="row-title">Planets</h2>
-        <div className="horizontal-container">
-          <CardPlanet num={1}/>
-        </div>
-        <h2 className="row-title">Vehicles</h2>
-        <div className="horizontal-container">
-          <CardVehicle num={1}/>
+        <h2 className="row-title">Locations</h2>
+        <div className="horizontal-container" id="style-3">
+          {places}
         </div>
       </>
     );
 };
+
+export default CardsRow

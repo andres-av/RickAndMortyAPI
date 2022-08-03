@@ -1,14 +1,13 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import { Home } from "./views/home";
-import { LearnMorePeople } from "./views/learnMorePeople";
-import { LearnMorePlanet } from "./views/learnMorePlanet";
-import { LearnMoreVehicle } from "./views/learnMoreVehicle";
+import Home from "./views/home";
+import LearnMorePeople  from "./views/learnMorePeople";
+import LearnMoreLocation  from "./views/learnMoreLocation";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
+import Navbar  from "./component/navbar";
+import  Footer  from "./component/footer";
 
 //create your first component
 const Layout = () => {
@@ -27,11 +26,8 @@ const Layout = () => {
 						<Route exact path="/learn-more/people">
 							<LearnMorePeople />
 						</Route>
-						<Route exact path="/learn-more/planet">
-							<LearnMorePlanet />
-						</Route>
-						<Route exact path="/learn-more/vehicle">
-							<LearnMoreVehicle />
+						<Route exact path="/learn-more/Location">
+							<LearnMoreLocation />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

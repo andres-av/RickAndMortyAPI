@@ -1,21 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import starwars from "../../img/starwars-helmet.png"
+import RAMTitle from "../../img/Rick-and-Morty.png"
 
 // Import Styles
 import "../../styles/components/navbar.css";
 
-export const Navbar = () => {
+const Navbar = () => {
 	return (
     <>
       <nav className="navbar bg-light">
         <div className="container">
-          <div className="titleContainer">
             <Link className="navbar-brand" to="/">
-              <img src={starwars} alt="" width="55" height="55" />
+              <img src={RAMTitle} alt="" width="150" height="80" />
             </Link>
-            <p className="navbarTitle">Star Wars</p>
-          </div>
           <div className="btn-group">
             <button type="button" className="btn btn-primary">
               Favorites
@@ -41,3 +38,5 @@ export const Navbar = () => {
     </>
   );
 };
+
+export default Navbar;

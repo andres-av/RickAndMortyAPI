@@ -1,9 +1,11 @@
 import React from "react";
-import { CardsRow } from "../component/cardsRow";
+import CardsRow  from "../component/cardsRow";
 // import "../../styles/home.css";
 
-export const Home = () => (
+const Home = () => (
 	<div>
 		<CardsRow />
 	</div>
 );
+
+export default Home

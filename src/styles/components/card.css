@@ -4,5 +4,33 @@
 
 .btnContainer{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
+
+.card-title{
+    color: rgb(1,180,198);
+}
+
+.card-text{
+    margin: 1vh 0vw;
+}
+
+.portal{
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    margin: 1vh 0vw 2vh 11vw ;
+    padding:0%;
+}
+
+.portal:hover , .portal:focus , .portal:active{
+    -webkit-transform: scale(1.4) rotate(120deg);
+    transform: scale(1.4) rotate(120deg);
+}
+

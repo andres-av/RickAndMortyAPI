@@ -4,7 +4,20 @@ import React from "react";
 // Import Styles
 import "../../styles/views/learnMore.css";
 
-export const LearnMorePeople = (num) => {
+const LearnMorePeople = (num) => {
+
+  const [person, setPerson] = useState({});
+  
+  const getPeople = () => {fetch(`https://www.swapi.tech/api/people/${num}`)
+    .then((resp) => resp.json())
+    .then((data) => setPerson(data))
+    .catch(err => console.error(err))
+  }
+
+  useEffect(() => {
+    getPeople();
+  }, []);
+
 
   console.log(num);
   return (
@@ -63,3 +76,5 @@ export const LearnMorePeople = (num) => {
   )
 
   };
+
+  export default LearnMorePeople
