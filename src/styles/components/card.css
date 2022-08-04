@@ -25,7 +25,7 @@
     transition-duration: 0.5s;
     -webkit-transition-property: transform;
     transition-property: transform;
-    margin: 1vh 0vw 2vh 11vw ;
+    margin-bottom: 2vh;
     padding:0%;
 }
 

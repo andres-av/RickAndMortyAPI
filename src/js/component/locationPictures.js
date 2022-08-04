@@ -30,7 +30,7 @@ const LocationPictures = ({number}) => {
 
     const numToName = num[index];
 
-    return(<img src={`../../img/locations${numToName}`} className="card-img-top" alt="Location Picture" />)
+    return(<img src={numToName} className="card-img-top" alt="Location Picture" height="180"/>)
 }
 
 export default LocationPictures

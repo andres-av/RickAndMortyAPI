@@ -1,6 +1,5 @@
 // Import React libraries
 import React, { useState , useEffect } from "react";
-import { Link } from "react-router-dom";
 
 // Import Styles
 import "../../styles/components/cardsRow.css";
@@ -39,7 +38,7 @@ const CardsRow = () => {
   const places = location.map((place) => <CardLocation place={place} key={place.id}/>)
 
     return (
-      <>
+      <div className="background">
         <h2 className="row-title">Characters</h2>
         <div className="horizontal-container" id="style-2">
           {characters}
@@ -48,7 +47,7 @@ const CardsRow = () => {
         <div className="horizontal-container" id="style-3">
           {places}
         </div>
-      </>
+      </div>
     );
 };
 

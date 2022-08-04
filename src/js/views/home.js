@@ -1,6 +1,8 @@
+// Import React libraries
 import React from "react";
+
+// Import components
 import CardsRow  from "../component/cardsRow";
-// import "../../styles/home.css";
 
 const Home = () => (
 	<div>

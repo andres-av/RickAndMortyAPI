@@ -1,5 +1,5 @@
 // Import React libraries
-import React, { useState , useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 // Import Images
@@ -17,17 +17,17 @@ const Cardplace = ({place}) => {
       <div className="card">
         <LocationPictures number={place.id} />
         <div className="card-body">
-          <div className="btnContainer" >
           <h5 className="card-title">{place.name}</h5>
-          <button type="button" className="btn btn-outline-warning">
-            <i className="fa-solid fa-heart-circle-plus"></i>
-            </button>
-          </div>
           <p className="card-text text-wrap">Type: {place.type}</p>
           <p className="card-text text-wrap">Dimension: {place.dimension}</p>
+          <div className="btnContainer mt-4">
             <Link to="/learn-more/people" className="btn portal">
-                <img src={portal} width="50" height="50"/>
+              <img src={portal} width="50" height="50" />
             </Link>
+            <button type="button" className="btn btn-outline-warning">
+              <i className="fa-solid fa-heart-circle-plus"></i>
+            </button>
+          </div>
         </div>
       </div>
     );
