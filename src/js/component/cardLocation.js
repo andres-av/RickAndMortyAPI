@@ -5,14 +5,17 @@ import { Link } from "react-router-dom";
 // Import Images
 import portal from "../../img/portal.png"
 
+// Import components
+import LocationPictures from "./locationPictures"
+
 // Import Styles
 import "../../styles/components/card.css";
 
 const Cardplace = ({place}) => {
-
+  
     return (
       <div className="card">
-        <img src="" className="card-img-top" alt="place Picture" />
+        <LocationPictures number={place.id} />
         <div className="card-body">
           <div className="btnContainer" >
           <h5 className="card-title">{place.name}</h5>
