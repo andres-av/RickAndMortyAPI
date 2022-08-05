@@ -1,5 +1,5 @@
 // Import React libraries
-import React, { useState , useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 // Import Images
@@ -19,7 +19,7 @@ const CardPeople = ({person})=> {
         <p className="card-text text-wrap">Species: {person.species}</p>
         <p className="card-text text-wrap">Status: {person.status}</p>
         <div className="btnContainer" >
-          <Link to="/learn-more/people" className="btn portal">
+          <Link to={`/learnMorePeople/${person.id}`} className="btn portal">
                 <img src={portal} width="50" height="50"/>
           </Link>
           <button type="button" className="btn btn-outline-warning">

@@ -8,15 +8,16 @@
 }
 
 .moreInfoContainer{
-    border-top: 2px solid #D62929;
+    border-top: 2px solid rgb(151,206,76);
     display: flex;
-    gap: 2vw;
+    justify-content: space-around;
 }
 
 .moreInfo{
-    color: #D62929;
+    color: rgb(151,206,76);
 }
-.moreInfo h4{
-    margin: 12%;
+
+h4{
+    margin: 3vh;
 }
 
