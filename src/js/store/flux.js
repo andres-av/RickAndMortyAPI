@@ -12,7 +12,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			people: [],
+			location: [],
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -37,7 +39,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+			fetchPeople: () => {
+				fetch("https://rickandmortyapi.com/api/character")
+				.then((response) => response.json())
+				.then(data => {setStore({people: data.results})
+				})
+			}, 
+			fetchLocations: () => {
+				fetch("https://rickandmortyapi.com/api/location")
+				.then((response) => response.json())
+				.then(data => {
+				  setLocation(data.results)
+				})
+			},
 		}
 	};
 };

@@ -22,10 +22,10 @@ const LearnMorePeople = () => {
   }, []);
 
   // // Get all episodes to display the ones in which the specific character appears
-  const episodeList = []
-  episodeList.push(person.episode)
+  // const episodeList = []
+  // episodeList.push(person.episode)
 
-  const episodeNames = episodeList.map((episode , index) => <LearnMoreEpisodes episode={episode} key={index} />)  
+  // const episodeNames = episodeList.map((episode , index) => <LearnMoreEpisodes episode={episode} key={index} />)  
 
   return (
     <>
@@ -39,7 +39,7 @@ const LearnMorePeople = () => {
           <div className="card-body">
             <h1 className="card-title">{person.name}</h1>
             <ul className="card-text">
-              {episodeNames}
+            <LearnMoreEpisodes episode={person.episode}/>
             </ul>
           </div>
         </div>
