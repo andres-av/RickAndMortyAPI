@@ -22,7 +22,7 @@ const LearnMorePeople = () => {
 
   const listOfPersonEpisodesURL = store.person.episode;
   
-  console.log(Array.isArray(listOfPersonEpisodesURL));
+  console.log(listOfPersonEpisodesURL);
 
   // const listOfEpisodes = if(listOfPersonEpisodesURL){
   //  listOfPersonEpisodesURL.map((url , index) => <li key={index}>{url}</li>)
@@ -40,7 +40,8 @@ const LearnMorePeople = () => {
           <div className="card-body">
             <h1 className="card-title">{store.person.name}</h1>
             <ul className="card-text">
-            {/* {listOfPersonEpisodesURL} */}
+              <li>Episodes where {store.person.name} appears:</li>
+            {listOfPersonEpisodesURL}
             </ul>
           </div>
         </div>

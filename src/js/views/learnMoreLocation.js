@@ -31,7 +31,7 @@ const LearnMoreLocation = () => {
             <div className="col-md-8">
               <div className="card-body">
                 <h1 className="card-title">{store.place.name}</h1>
-                <p className="card-text">Residents (store.place.residents)</p>
+                <p className="card-text">Residents: {store.place.residents}</p>
               </div>
             </div>
           </div>

@@ -1,4 +1,6 @@
-import React from "react";
+// Import React libraries
+import React, { useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import RAMTitle from "../../img/Rick-and-Morty.png"
 
@@ -6,6 +8,14 @@ import RAMTitle from "../../img/Rick-and-Morty.png"
 import "../../styles/components/navbar.css";
 
 const Navbar = () => {
+  const { store, actions } = useContext(Context);
+
+  const addFavorite = (e) => {
+    return (
+      <Link className="dropdown-item" to="">{e.currentTarget.person.name}</Link>
+    )
+  }
+
 	return (
     <>
       <nav className="navbar bg-light">
@@ -27,9 +37,9 @@ const Navbar = () => {
             </button>
             <ul className="dropdown-menu">
               <li>
-                <a className="dropdown-item" href="#">
+                <Link className="dropdown-item" to="#">
                   Ejemplo de Favorito
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

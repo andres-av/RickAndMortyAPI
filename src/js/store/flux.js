@@ -23,7 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// learnMoreLocation component States (store the object of one specific place)
 			place: {},
 			// episodeListOnLearnMorePeople component states (store the list of name of episodes)
-			episode: [],
+			listOfPersonEpisodesURL: [],
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -72,8 +72,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.catch(err => console.error(err))
 			},
 			// episodeListOnLearnMorePeople component functions
-			fetchEpisodeName: () => {
-				fetch({episode})
+			fetchPersonEpisodes: () => {
+				fetch({})
 				.then((response) => response.json())
 				.then(data => {setStore({episode: data.name})
 				})
