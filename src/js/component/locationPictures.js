@@ -2,26 +2,26 @@
 import React from "react";
 
 // Import Images
-import  one  from "../../img/locations/one.webp";
+import  one  from "../../img/locations/one.png";
 import  two  from "../../img/locations/two.png";
-import  three  from "../../img/locations/three.webp";
-import  four  from "../../img/locations/four.webp";
+import  three  from "../../img/locations/three.png";
+import  four  from "../../img/locations/four.png";
 import  five  from "../../img/locations/five.jpg";
-import  six  from "../../img/locations/six.webp";
-import  seven  from "../../img/locations/seven.webp";
-import  eight  from "../../img/locations/eight.webp";
+import  six  from "../../img/locations/six.png";
+import  seven  from "../../img/locations/seven.png";
+import  eight  from "../../img/locations/eight.png";
 import  nine  from "../../img/locations/nine.jpg";
 import  ten  from "../../img/locations/ten.jpg";
-import  eleven  from "../../img/locations/eleven.webp";
-import  twelve  from "../../img/locations/twelve.webp";
-import  thirteen  from "../../img/locations/thirteen.webp";
-import  fourteen  from "../../img/locations/fourteen.webp";
-import  fifteen  from "../../img/locations/fifteen.webp";
-import  sixteen  from "../../img/locations/sixteen.webp";
+import  eleven  from "../../img/locations/eleven.png";
+import  twelve  from "../../img/locations/twelve.png";
+import  thirteen  from "../../img/locations/thirteen.png";
+import  fourteen  from "../../img/locations/fourteen.png";
+import  fifteen  from "../../img/locations/fifteen.png";
+import  sixteen  from "../../img/locations/sixteen.png";
 import  seventeen  from "../../img/locations/seventeen.png";
 import  eighteen  from "../../img/locations/eighteen.jpg";
-import  nineteen  from "../../img/locations/nineteen.webp";
-import  twenty  from "../../img/locations/twenty.webp";
+import  nineteen  from "../../img/locations/nineteen.png";
+import  twenty  from "../../img/locations/twenty.png";
 
 const LocationPictures = ({number}) => {
     const index = number-1;
@@ -30,7 +30,7 @@ const LocationPictures = ({number}) => {
 
     const numToName = num[index];
 
-    return(<img src={numToName} className="card-img-top" alt="Location Picture" height="180"/>)
+    return(<img src={numToName} />)
 }
 
 export default LocationPictures

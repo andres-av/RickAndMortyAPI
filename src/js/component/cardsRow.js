@@ -1,5 +1,5 @@
 // Import React libraries
-import React, { useState , useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 
 // Import Styles
@@ -19,18 +19,13 @@ const CardsRow = () => {
   }, [])
   
   const characters = store.people.map((person) => <CardPeople person={person} key={person.id}/>)
-    // Get location for Locations row
-  const [location, setLocation] = useState([]);
-
+    
+  // Get places for Locations row
   useEffect(() => {
-    fetch("https://rickandmortyapi.com/api/location")
-    .then((response) => response.json())
-    .then(data => {
-      setLocation(data.results)
-    })
+    actions.fetchLocations()
   }, [])
   
-  const places = location.map((place) => <CardLocation place={place} key={place.id}/>)
+  const places = store.location.map((place) => <CardLocation place={place} key={place.id}/>)
 
     return (
       <div className="background">

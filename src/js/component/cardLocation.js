@@ -15,13 +15,13 @@ const Cardplace = ({place}) => {
   
     return (
       <div className="card">
-        <LocationPictures number={place.id} />
+        <LocationPictures number={place.id}/>
         <div className="card-body">
-          <h5 className="card-title">{place.name}</h5>
+          <h5 className="card-title text-wrap">{place.name}</h5>
           <p className="card-text text-wrap">Type: {place.type}</p>
           <p className="card-text text-wrap">Dimension: {place.dimension}</p>
           <div className="btnContainer mt-4">
-            <Link to="/learn-more/people" className="btn portal">
+            <Link to={`/learnMoreLocation/${place.id}`} className="btn portal">
               <img src={portal} width="50" height="50" />
             </Link>
             <button type="button" className="btn btn-outline-warning">

@@ -1,31 +1,32 @@
 // Import React libraries
-import React , { useState , useEffect } from "react";
-import {Link , useParams } from "react-router-dom"
+import React , { useEffect , useContext } from "react";
+import { useParams } from "react-router-dom"
+import { Context } from "../store/appContext";
 
 // Import Styles
 import "../../styles/views/learnMore.css";
+
 // Import components
-import LearnMoreEpisodes from "../component/learnMoreEpisodes";
+// import EpisodeListOnLearnMorePeople from "../component/episodeListOnLearnMorePeople";
 
 const LearnMorePeople = () => {
+  const { store, actions } = useContext(Context);
 
   // get Id from URL to fetch the specific character info
-  let params = useParams();
-
-  const [person, setPerson] = useState({});
-
+  const params = useParams();
+  
+  // get specific character to show their details
   useEffect(() => {
-    fetch(`https://rickandmortyapi.com/api/character/${params.id}`)
-    .then((resp) => resp.json())
-    .then(data => setPerson(data))
-    .catch(err => console.error(err))
+    actions.fetchPerson(params)
   }, []);
 
-  // // Get all episodes to display the ones in which the specific character appears
-  // const episodeList = []
-  // episodeList.push(person.episode)
+  const listOfPersonEpisodesURL = store.person.episode;
+  
+  console.log(Array.isArray(listOfPersonEpisodesURL));
 
-  // const episodeNames = episodeList.map((episode , index) => <LearnMoreEpisodes episode={episode} key={index} />)  
+  // const listOfEpisodes = if(listOfPersonEpisodesURL){
+  //  listOfPersonEpisodesURL.map((url , index) => <li key={index}>{url}</li>)
+  // }
 
   return (
     <>
@@ -33,13 +34,13 @@ const LearnMorePeople = () => {
     <div className="card mb-3 border-none">
       <div className="row g-0">
         <div className="col-md-4">
-          <img src={person.image} className="img-fluid rounded-start" alt="..." />
+          <img src={store.person.image} className="img-fluid rounded-start" alt="..." />
         </div>
         <div className="col-md-8">
           <div className="card-body">
-            <h1 className="card-title">{person.name}</h1>
+            <h1 className="card-title">{store.person.name}</h1>
             <ul className="card-text">
-            <LearnMoreEpisodes episode={person.episode}/>
+            {/* {listOfPersonEpisodesURL} */}
             </ul>
           </div>
         </div>
@@ -48,19 +49,19 @@ const LearnMorePeople = () => {
     <div className="moreInfoContainer">
         <div className="moreInfo">
             <h4>Name</h4>
-            <h4>{person.name}</h4>
+            <h4>{store.person.name}</h4>
         </div>
         <div className="moreInfo">
             <h4>Status</h4>
-            <h4>{person.status}</h4>
+            <h4>{store.person.status}</h4>
         </div>
         <div className="moreInfo">
             <h4>Species</h4>
-            <h4>{person.species}</h4>
+            <h4>{store.person.species}</h4>
         </div>
         <div className="moreInfo">
             <h4>Gender</h4>
-            <h4>{person.gender}</h4>
+            <h4>{store.person.gender}</h4>
         </div>
     </div>
   </div>

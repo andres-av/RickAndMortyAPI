@@ -1,3 +1,5 @@
+import { useParams } from "react-router";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -13,18 +15,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
+			// cardsRow component States (store an array of all characters)
 			people: [],
 			location: [],
+			// learnMorePeople component States (store the object of one specific person)
+			person: {},
+			// learnMoreLocation component States (store the object of one specific place)
+			place: {},
+			// episodeListOnLearnMorePeople component states (store the list of name of episodes)
+			episode: [],
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
 			},
 			changeColor: (index, color) => {
 				//get the store
@@ -40,6 +44,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
+			// cardsRow component functions
 			fetchPeople: () => {
 				fetch("https://rickandmortyapi.com/api/character")
 				.then((response) => response.json())
@@ -49,10 +54,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 			fetchLocations: () => {
 				fetch("https://rickandmortyapi.com/api/location")
 				.then((response) => response.json())
-				.then(data => {
-				  setLocation(data.results)
+				.then(data => {setStore({location: data.results})
 				})
 			},
+			//learnMorePeople component functions
+			fetchPerson: (params) => {
+				fetch(`https://rickandmortyapi.com/api/character/${params.id}`)
+				.then((resp) => resp.json())
+				.then(data => {setStore({person: data})})
+				.catch(err => console.error(err))
+			},
+			//learnMorePeople component functions
+			fetchPlace: (params) => {
+				fetch(`https://rickandmortyapi.com/api/location/${params.id}`)
+				.then((resp) => resp.json())
+				.then(data => {setStore({place: data})})
+				.catch(err => console.error(err))
+			},
+			// episodeListOnLearnMorePeople component functions
+			fetchEpisodeName: () => {
+				fetch({episode})
+				.then((response) => response.json())
+				.then(data => {setStore({episode: data.name})
+				})
+			}
+
 		}
 	};
 };
