@@ -58,11 +58,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 			},
 			//learnMorePeople component functions
-			fetchPerson: (params) => {
-				fetch(`https://rickandmortyapi.com/api/character/${params.id}`)
-				.then((resp) => resp.json())
-				.then(data => {setStore({person: data})})
-				.catch(err => console.error(err))
+			fetchPerson: async (params) => {
+				const response = await fetch(`https://rickandmortyapi.com/api/character/${params.id}`)
+				const data = await response.json();
+				setStore({person: data})
+				if(data){
+					return true
+				} else {
+					return false
+				}
 			},
 			//learnMorePeople component functions
 			fetchPlace: (params) => {

@@ -1,5 +1,5 @@
 // Import React libraries
-import React , { useEffect , useContext } from "react";
+import React , { useState, useEffect , useContext } from "react";
 import { useParams } from "react-router-dom"
 import { Context } from "../store/appContext";
 
@@ -11,22 +11,28 @@ import "../../styles/views/learnMore.css";
 
 const LearnMorePeople = () => {
   const { store, actions } = useContext(Context);
+  const [episodeNames , setEpisodeNames] = useState([]);
 
   // get Id from URL to fetch the specific character info
   const params = useParams();
   
   // get specific character to show their details
   useEffect(() => {
-    actions.fetchPerson(params)
+    const response = actions.fetchPerson(params).then((data) => {
+      if(data){
+        listOfPersonEpisodesURL()
+      }
+    })
   }, []);
 
-  const listOfPersonEpisodesURL = store.person.episode;
-  
-  console.log(listOfPersonEpisodesURL);
-
-  // const listOfEpisodes = if(listOfPersonEpisodesURL){
-  //  listOfPersonEpisodesURL.map((url , index) => <li key={index}>{url}</li>)
-  // }
+  const listOfPersonEpisodesURL = () => {
+    const episodes = store.person.episode;
+    episodes.forEach(async element => {
+      let response = await fetch(element)
+      let data = await response.json();
+      setEpisodeNames(current => [...current , data])
+    });
+  };
 
   return (
     <>
@@ -41,7 +47,9 @@ const LearnMorePeople = () => {
             <h1 className="card-title">{store.person.name}</h1>
             <ul className="card-text">
               <li>Episodes where {store.person.name} appears:</li>
-            {listOfPersonEpisodesURL}
+              {episodeNames.map(element => {
+                return <li>{element.name}</li>
+              })}
             </ul>
           </div>
         </div>
