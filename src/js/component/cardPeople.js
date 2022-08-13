@@ -1,5 +1,6 @@
 // Import React libraries
-import React from "react";
+import React, { useState , useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
 // Import Images
@@ -9,6 +10,7 @@ import portal from "../../img/portal.png"
 import "../../styles/components/card.css";
 
 const CardPeople = ({person})=> {
+  const { store, actions } = useContext(Context);
 
   return (
       <div className="card">
@@ -22,7 +24,7 @@ const CardPeople = ({person})=> {
           <Link to={`/learnMorePeople/${person.id}`} className="btn portal">
                 <img src={portal} width="50" height="50"/>
           </Link>
-          <button type="button" className="btn btn-outline-warning" /*</div>onClick={addFavorite(e)}*/>
+          <button type="button" className="btn btn-outline-warning" onClick={() => {actions.addFavorites(person)}}>
             <i className="fa-solid fa-heart-circle-plus"></i>
           </button>
           </div>

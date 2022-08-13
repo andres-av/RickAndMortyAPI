@@ -37,10 +37,10 @@ const LearnMorePeople = () => {
     <div className="card mb-3 border-none">
       <div className="row g-0">
         <div className="col-md-4">
-          <img src={store.person.image} className="img-fluid rounded-start my-5" alt="Character Image"  />
+          <img src={store.person.image} className="img-fluid rounded-start m-5" alt="Character Image"  />
         </div>
         <div className="col-md-8">
-          <div className="card-body">
+          <div className="card-body mt-5">
             <h1 className="card-title">{store.person.name}</h1>
             <h4>Episodes where {store.person.name} appears:</h4>
             <ol className="card-text two-colums">

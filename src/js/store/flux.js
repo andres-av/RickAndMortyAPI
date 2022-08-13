@@ -10,26 +10,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			person: {},
 			// learnMoreLocation component States (store the object of one specific place)
 			place: {},
+			// favorites list
+			favorites: [{name:"Press the heart button to add favorites" , url:""}],
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			},
 			// cardsRow component functions
 			fetchPeople: () => {
 				fetch("https://rickandmortyapi.com/api/character")
@@ -65,6 +49,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return false
 				}
 			},
+			// add favorite
+			addFavorites: (newItem) => {
+				const store = getStore();
+				setStore({ favorites: [...store.favorites, newItem] })
+			}
 		}
 	};
 };

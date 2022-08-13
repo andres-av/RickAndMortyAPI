@@ -40,10 +40,12 @@ const LearnMoreLocation = () => {
         <div className="card mb-3 border-none">
           <div className="row g-0">
             <div className="col-md-4">
-              <LocationPictures number={params.id} />
+              <div  className="m-5">
+              <LocationPictures number={params.id} className="ms-3 mt-5"/>
+              </div>
             </div>
             <div className="col-md-8">
-              <div className="card-body">
+              <div className="card-body mt-5">
                 <h1 className="card-title">{store.place.name}</h1>
                 {/* <p className="card-text">Residents: {store.place.residents}</p> */}
                 <h4>{store.place.name} residents:</h4>

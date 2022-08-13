@@ -1,5 +1,5 @@
 // Import React libraries
-import React, { useEffect, useContext } from "react";
+import React, { useState , useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import RAMTitle from "../../img/Rick-and-Morty.png"
@@ -10,15 +10,24 @@ import "../../styles/components/navbar.css";
 const Navbar = () => {
   const { store, actions } = useContext(Context);
 
-  const addFavorite = (e) => {
-    return (
-      <Link className="dropdown-item" to="">{e.currentTarget.person.name}</Link>
-    )
-  }
+  // const favoritesList = store.favorites.map((element , index) => {
+  //   <li className="dropdown-item" key={index}>
+  //     <Link to={element.url}>
+  //       {element.name}
+  //     </Link>
+  //   </li>
+  // })
+
+  // console.log(store.favorites.forEach(element => {
+  //   return name
+  // }));
+
+
+
 
 	return (
     <>
-      <nav className="navbar bg-light">
+      <nav className="navbar navbar-dark bg-dark">
         <div className="container">
             <Link className="navbar-brand" to="/">
               <img src={RAMTitle} alt="" width="150" height="80" />
@@ -36,11 +45,8 @@ const Navbar = () => {
               <span className="visually-hidden">Toggle Dropdown</span>
             </button>
             <ul className="dropdown-menu">
-              <li>
-                <Link className="dropdown-item" to="#">
-                  Ejemplo de Favorito
-                </Link>
-              </li>
+              <li>test</li>
+              {/* {favoritesList} */}
             </ul>
           </div>
         </div>
