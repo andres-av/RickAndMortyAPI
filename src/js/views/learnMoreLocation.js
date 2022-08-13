@@ -1,5 +1,5 @@
 // Import React libraries
-import React , { useEffect , useContext } from "react";
+import React , { useState, useEffect , useContext } from "react";
 import { useParams } from "react-router-dom"
 import { Context } from "../store/appContext";
 
@@ -11,14 +11,28 @@ import LocationPictures from "../component/locationPictures"
 
 const LearnMoreLocation = () => {
   const { store, actions } = useContext(Context);
+  const [residentsList , setResidentsList] = useState([]);
 
     // get Id from URL to fetch the specific character info
     const params = useParams();
   
-    // get specific character to show their details
+    // get specific place to show their details
     useEffect(() => {
-      actions.fetchPlace(params)
+      const response = actions.fetchPlace(params).then((data) => {
+        if(data){
+          listOfResidents()
+        }
+      })
     }, []);
+
+    const listOfResidents = () => {
+      const residents = store.place.residents;
+      residents.forEach(async element => {
+        let response = await fetch(element)
+        let data = await response.json();
+        setResidentsList(current => [...current , data])
+      });
+    };
 
   return (
     <>
@@ -31,7 +45,13 @@ const LearnMoreLocation = () => {
             <div className="col-md-8">
               <div className="card-body">
                 <h1 className="card-title">{store.place.name}</h1>
-                <p className="card-text">Residents: {store.place.residents}</p>
+                {/* <p className="card-text">Residents: {store.place.residents}</p> */}
+                <h4>{store.place.name} residents:</h4>
+                <ol className="card-text two-colums">
+                {residentsList.map((element , index) => {
+                return <li key={index}>{element.name}</li>
+              })}
+            </ol>
               </div>
             </div>
           </div>

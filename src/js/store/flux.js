@@ -3,18 +3,6 @@ import { useParams } from "react-router";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
 			// cardsRow component States (store an array of all characters)
 			people: [],
 			location: [],
@@ -22,8 +10,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			person: {},
 			// learnMoreLocation component States (store the object of one specific place)
 			place: {},
-			// episodeListOnLearnMorePeople component states (store the list of name of episodes)
-			listOfPersonEpisodesURL: [],
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -69,20 +55,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			//learnMorePeople component functions
-			fetchPlace: (params) => {
-				fetch(`https://rickandmortyapi.com/api/location/${params.id}`)
-				.then((resp) => resp.json())
-				.then(data => {setStore({place: data})})
-				.catch(err => console.error(err))
+			fetchPlace: async (params) => {
+				const response = await fetch(`https://rickandmortyapi.com/api/location/${params.id}`)
+				const data = await response.json()
+				setStore({place: data})
+				if(data){
+					return true
+				} else {
+					return false
+				}
 			},
-			// episodeListOnLearnMorePeople component functions
-			fetchPersonEpisodes: () => {
-				fetch({})
-				.then((response) => response.json())
-				.then(data => {setStore({episode: data.name})
-				})
-			}
-
 		}
 	};
 };

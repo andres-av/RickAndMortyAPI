@@ -13,6 +13,12 @@
     justify-content: space-around;
 }
 
+.two-colums{
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+
 .moreInfo{
     color: rgb(151,206,76);
 }

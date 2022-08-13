@@ -6,9 +6,6 @@ import { Context } from "../store/appContext";
 // Import Styles
 import "../../styles/views/learnMore.css";
 
-// Import components
-// import EpisodeListOnLearnMorePeople from "../component/episodeListOnLearnMorePeople";
-
 const LearnMorePeople = () => {
   const { store, actions } = useContext(Context);
   const [episodeNames , setEpisodeNames] = useState([]);
@@ -40,17 +37,17 @@ const LearnMorePeople = () => {
     <div className="card mb-3 border-none">
       <div className="row g-0">
         <div className="col-md-4">
-          <img src={store.person.image} className="img-fluid rounded-start" alt="..." />
+          <img src={store.person.image} className="img-fluid rounded-start my-5" alt="Character Image"  />
         </div>
         <div className="col-md-8">
           <div className="card-body">
             <h1 className="card-title">{store.person.name}</h1>
-            <ul className="card-text">
-              <li>Episodes where {store.person.name} appears:</li>
-              {episodeNames.map(element => {
-                return <li>{element.name}</li>
+            <h4>Episodes where {store.person.name} appears:</h4>
+            <ol className="card-text two-colums">
+              {episodeNames.map((element , index) => {
+                return <li key={index}>{element.name}</li>
               })}
-            </ul>
+            </ol>
           </div>
         </div>
       </div>
