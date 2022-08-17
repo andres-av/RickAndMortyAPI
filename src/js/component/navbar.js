@@ -10,20 +10,13 @@ import "../../styles/components/navbar.css";
 const Navbar = () => {
   const { store, actions } = useContext(Context);
 
-  // const favoritesList = store.favorites.map((element , index) => {
-  //   <li className="dropdown-item" key={index}>
-  //     <Link to={element.url}>
-  //       {element.name}
-  //     </Link>
-  //   </li>
-  // })
-
-  // console.log(store.favorites.forEach(element => {
-  //   return name
-  // }));
-
-
-
+  const favoritesList = store.favorites.map((element , index) => {
+    return <li className="dropdown-item" key={index}>
+      <Link to={element.url}>
+        {element.name}
+      </Link>
+    </li>
+  })
 
 	return (
     <>
@@ -45,8 +38,7 @@ const Navbar = () => {
               <span className="visually-hidden">Toggle Dropdown</span>
             </button>
             <ul className="dropdown-menu">
-              <li>test</li>
-              {/* {favoritesList} */}
+              {favoritesList}
             </ul>
           </div>
         </div>

@@ -53,6 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addFavorites: (newItem) => {
 				const store = getStore();
 				setStore({ favorites: [...store.favorites, newItem] })
+				console.log(store.favorites);
 			}
 		}
 	};
