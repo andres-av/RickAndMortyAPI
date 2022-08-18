@@ -10,13 +10,23 @@ import "../../styles/components/navbar.css";
 const Navbar = () => {
   const { store, actions } = useContext(Context);
 
-  const favoritesList = store.favorites.map((element , index) => {
-    return <li className="dropdown-item" key={index}>
-      <Link to={element.url}>
+
+
+  const favoritesCharacters = store.favoritesPerson.map((element , index) => {
+      return <li key={index} className="favorite-item">
+      <Link to={`/learnMorePeople/${element.id}`} className="text-white">
         {element.name}
       </Link>
     </li>
   })
+
+  const favoritesLocations = store.favoritesLocation.map((element , index) => {
+    return <li key={index} className="favorite-item">
+    <Link to={`/learnMoreLocation/${element.id}`} className="text-white">
+      {element.name}
+    </Link>
+  </li>
+})
 
 	return (
     <>
@@ -26,19 +36,15 @@ const Navbar = () => {
               <img src={RAMTitle} alt="" width="150" height="80" />
             </Link>
           <div className="btn-group">
-            <button type="button" className="btn btn-primary">
-              Favorites
-            </button>
-            <button
-              type="button"
-              className="btn btn-primary dropdown-toggle dropdown-toggle-split"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <span className="visually-hidden">Toggle Dropdown</span>
-            </button>
-            <ul className="dropdown-menu">
-              {favoritesList}
+          <button type="button" className="btn btn-primary btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Favorites
+          </button>
+            <ul className="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+              <li className="favorite-item fw-bold fs-5">Characters</li>
+              {favoritesCharacters}
+              <li><hr className="dropdown-divider"/></li>
+              <li className="favorite-item fw-bold fs-5">Locations</li>
+              {favoritesLocations}
             </ul>
           </div>
         </div>

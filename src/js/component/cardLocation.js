@@ -1,5 +1,6 @@
 // Import React libraries
-import React from "react";
+import React, { useState , useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
 // Import Images
@@ -12,6 +13,7 @@ import LocationPictures from "./locationPictures"
 import "../../styles/components/card.css";
 
 const Cardplace = ({place}) => {
+  const { store, actions } = useContext(Context);
   
     return (
       <div className="card">
@@ -24,7 +26,7 @@ const Cardplace = ({place}) => {
             <Link to={`/learnMoreLocation/${place.id}`} className="btn portal">
               <img src={portal} width="50" height="50" />
             </Link>
-            <button type="button" className="btn btn-outline-warning">
+            <button type="button" className="btn btn-outline-warning" onClick={() => {actions.addFavoritesLocation(place)}}>
               <i className="fa-solid fa-heart-circle-plus"></i>
             </button>
           </div>

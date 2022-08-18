@@ -11,7 +11,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// learnMoreLocation component States (store the object of one specific place)
 			place: {},
 			// favorites list
-			favorites: [{name:"Press the heart button to add favorites" , url:""}],
+			favoritesPerson: [],
+			favoritesLocation: [],
 		},
 		actions: {
 			// cardsRow component functions
@@ -50,10 +51,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			// add favorite
-			addFavorites: (newItem) => {
+			addFavoritesPerson: (newItem) => {
 				const store = getStore();
-				setStore({ favorites: [...store.favorites, newItem] })
-				console.log(store.favorites);
+				setStore({ favoritesPerson: [...store.favoritesPerson, newItem] })
+				console.log(store.favoritesPerson);
+			},
+			addFavoritesLocation: (newItem) => {
+				const store = getStore();
+				setStore({ favoritesLocation: [...store.favoritesLocation, newItem] })
+				console.log(store.favoritesLocation);
 			}
 		}
 	};

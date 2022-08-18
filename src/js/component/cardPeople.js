@@ -24,7 +24,7 @@ const CardPeople = ({person})=> {
           <Link to={`/learnMorePeople/${person.id}`} className="btn portal">
                 <img src={portal} width="50" height="50"/>
           </Link>
-          <button type="button" className="btn btn-outline-warning" onClick={() => {actions.addFavorites(person)}}>
+          <button type="button" className="btn btn-outline-warning" onClick={() => {actions.addFavoritesPerson(person)}}>
             <i className="fa-solid fa-heart-circle-plus"></i>
           </button>
           </div>

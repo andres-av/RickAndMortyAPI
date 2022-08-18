@@ -1,3 +1,15 @@
-.navbar-brand{
+.navbar-brand {
     padding: 0%;
+}
+
+ul {
+    width: 20vw;
+}
+
+.favorite-item {
+    margin: 5%;
+}
+
+.text-white{
+    text-decoration: none;
 }
