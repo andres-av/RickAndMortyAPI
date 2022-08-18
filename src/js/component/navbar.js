@@ -40,10 +40,10 @@ const Navbar = () => {
             Favorites
           </button>
             <ul className="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-              <li className="favorite-item fw-bold fs-5">Characters</li>
+              <li className="favorite-item fw-bold fs-5 favorite-title">Characters</li>
               {favoritesCharacters}
               <li><hr className="dropdown-divider"/></li>
-              <li className="favorite-item fw-bold fs-5">Locations</li>
+              <li className="favorite-item fw-bold fs-5 favorite-title">Locations</li>
               {favoritesLocations}
             </ul>
           </div>
